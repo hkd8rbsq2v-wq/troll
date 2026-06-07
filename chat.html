@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina AI • Chat</title>
+    <title>占卜 AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
         
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', system_ui, sans-serif;
         }
         
         .glass-card {
@@ -18,6 +18,11 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(20px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .divination-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -28,30 +33,18 @@
             <div class="flex items-center justify-between h-14">
                 <!-- Logo -->
                 <div class="flex items-center gap-x-3">
-                    <a href="index.html" class="flex items-center gap-x-3">
-                        <div class="w-8 h-8 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
-                            <span class="text-white font-semibold text-xl tracking-tighter">L</span>
-                        </div>
-                        <div class="flex items-baseline gap-x-1.5">
-                            <span class="font-semibold text-xl tracking-tighter">Lumina</span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-x-8 text-sm">
-                    <a href="index.html#features" class="text-white/70 hover:text-white transition-colors">Features</a>
-                    <a href="index.html#demo" class="text-white/70 hover:text-white transition-colors">Playground</a>
-                    <a href="index.html#testimonials" class="text-white/70 hover:text-white transition-colors">Stories</a>
+                    <div class="w-8 h-8 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+                        <span class="text-white font-semibold text-xl tracking-tighter">占</span>
+                    </div>
+                    <span class="font-semibold text-xl tracking-tighter">占卜 AI</span>
                 </div>
 
                 <div class="flex items-center gap-x-4">
                     <a href="index.html" 
                        class="px-5 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
-                        Back to Lumina
+                        返回首頁
                     </a>
                     
-                    <!-- Mobile menu button -->
                     <button id="mobile-menu-btn"
                             class="md:hidden w-10 h-10 flex items-center justify-center text-white/70 hover:text-white"
                             aria-label="Toggle menu">
@@ -66,63 +59,69 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0a0a0f]">
             <div class="px-6 py-4 flex flex-col gap-y-1 text-sm">
-                <a href="index.html#features" class="py-2.5 text-white/80 hover:text-white">Features</a>
-                <a href="index.html#demo" class="py-2.5 text-white/80 hover:text-white">Playground</a>
-                <a href="index.html#testimonials" class="py-2.5 text-white/80 hover:text-white">Stories</a>
+                <a href="index.html" class="py-2.5 text-white/80 hover:text-white">返回首頁</a>
                 <div class="pt-2 mt-2 border-t border-white/10">
-                    <a href="index.html" 
+                    <a href="https://udify.app/chatbot/zkfzl4Eahd09XtOO" target="_blank" 
                        class="w-full py-3 rounded-2xl bg-white text-[#0a0a0f] font-semibold text-sm text-center block">
-                        Back to Lumina
+                        開啟完整版
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-5xl mx-auto flex h-[calc(100vh-57px)]">
+    <div class="max-w-6xl mx-auto flex h-[calc(100vh-57px)]">
         
-        <!-- Sidebar (History) -->
+        <!-- Sidebar -->
         <div class="hidden lg:flex w-72 border-r border-white/10 flex-col bg-[#0a0a0f]/60 p-4">
-            <button class="flex items-center justify-center gap-x-2 w-full py-3 rounded-2xl border border-white/15 hover:bg-white/5 text-sm font-medium mb-6 active:scale-[0.985]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
-                New chat
-            </button>
-
-            <div class="text-xs uppercase tracking-widest text-white/40 px-3 mb-2">Recent</div>
-            
-            <div class="space-y-1 text-sm">
-                <div class="px-3 py-2.5 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 flex items-center gap-x-3">
-                    <span class="flex-1 truncate">How to use glassmorphism?</span>
-                </div>
-                <div class="px-3 py-2.5 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 flex items-center gap-x-3">
-                    <span class="flex-1 truncate">Build a modern hero section</span>
-                </div>
-                <div class="px-3 py-2.5 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 flex items-center gap-x-3">
-                    <span class="flex-1 truncate">Best color palettes for dark UI</span>
+            <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white/90 mb-3 px-1">占卜工具</h3>
+                
+                <div class="space-y-3">
+                    <button onclick="startDivination('iching')" 
+                            class="w-full py-3 px-4 text-left rounded-2xl border border-white/15 hover:bg-white/5 text-sm font-medium flex items-center gap-x-3">
+                        <span>易經六爻</span>
+                    </button>
+                    <button onclick="startDivination('tarot')" 
+                            class="w-full py-3 px-4 text-left rounded-2xl border border-white/15 hover:bg-white/5 text-sm font-medium flex items-center gap-x-3">
+                        <span>塔羅三牌</span>
+                    </button>
+                    <button onclick="startDivination('daily')" 
+                            class="w-full py-3 px-4 text-left rounded-2xl border border-white/15 hover:bg-white/5 text-sm font-medium flex items-center gap-x-3">
+                        <span>每日運勢</span>
+                    </button>
                 </div>
             </div>
-            
-            <div class="mt-auto pt-6 text-xs text-white/40 px-1">
-                Built with <span class="font-medium text-white/60">Grok Build</span><br>
-                All conversations are local
+
+            <div>
+                <div class="text-xs uppercase tracking-widest text-white/40 px-1 mb-2">範例問題</div>
+                <div class="space-y-1 text-sm">
+                    <div onclick="useExampleQuestion(this)" class="px-3 py-2 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 text-sm">
+                        我的事業發展如何？
+                    </div>
+                    <div onclick="useExampleQuestion(this)" class="px-3 py-2 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 text-sm">
+                        感情運勢如何？
+                    </div>
+                    <div onclick="useExampleQuestion(this)" class="px-3 py-2 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 text-sm">
+                        今年適合換工作嗎？
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Main Chat Area -->
         <div class="flex-1 flex flex-col min-w-0">
-            <!-- Inner header for the chat area -->
+            <!-- Inner header -->
             <div class="px-4 md:px-8 py-4 border-b border-white/10 bg-white/5 flex items-center justify-between">
                 <div>
-                    <div class="font-semibold">Lumina AI</div>
+                    <div class="font-semibold">占卜 AI</div>
                     <div class="text-xs text-emerald-400">Powered by Dify • Online</div>
                 </div>
                 <a href="https://udify.app/chatbot/zkfzl4Eahd09XtOO" target="_blank" 
-                   class="text-xs px-3 py-1 rounded-xl border border-white/15 hover:bg-white/5">Open in Dify</a>
+                   class="text-xs px-3 py-1 rounded-xl border border-white/15 hover:bg-white/5">開啟完整版</a>
             </div>
 
-            <!-- Dify Chat Embed Container -->
+            <!-- Dify Embed -->
             <div class="flex-1 p-4 md:p-6 bg-[#0a0a0f]">
                 <div class="glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full">
                     <iframe
@@ -136,12 +135,33 @@
         </div>
     </div>
 
+    <!-- Divination Modal -->
+    <div id="div-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl w-full max-w-md p-6">
+            <div class="flex justify-between items-center mb-4">
+                <div class="font-semibold text-lg" id="modal-title"></div>
+                <button onclick="closeDivinationModal()" class="text-white/60 hover:text-white">✕</button>
+            </div>
+            
+            <div id="modal-content" class="mb-4"></div>
+            
+            <div class="flex gap-3">
+                <button onclick="copyDivinationPrompt()" 
+                        class="flex-1 py-3 rounded-2xl border border-white/20 hover:bg-white/5 text-sm font-medium transition-colors">
+                    複製解讀提示
+                </button>
+                <button onclick="closeDivinationModal()" 
+                        class="flex-1 py-3 rounded-2xl bg-white text-[#0a0a0f] text-sm font-semibold hover:bg-white/90 transition-colors">
+                    關閉
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Mobile menu toggle (basic UI only, no chat logic)
         function initMobileMenu() {
             const menuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-
             if (!menuBtn || !mobileMenu) return;
 
             menuBtn.addEventListener('click', () => {
@@ -149,15 +169,183 @@
             });
 
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        let currentDivination = null;
+
+        function startDivination(type) {
+            const modal = document.getElementById('div-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            currentDivination = { type, question: '' };
+            
+            let html = '';
+            
+            if (type === 'iching') {
+                title.textContent = '易經六爻占卜';
+                html = `
+                    <div class="mb-4">
+                        <input id="div-q" type="text" placeholder="請輸入你的問題..." 
+                               class="w-full bg-white/5 border border-white/15 rounded-2xl px-4 py-3 text-sm focus:outline-none">
+                    </div>
+                    <button onclick="castIChing()" 
+                            class="w-full py-3 bg-white text-[#0a0a0f] rounded-2xl text-sm font-semibold hover:bg-white/90">
+                        開始占卜
+                    </button>
+                `;
+            } else if (type === 'tarot') {
+                title.textContent = '塔羅三牌占卜';
+                html = `
+                    <div class="mb-4">
+                        <input id="div-q" type="text" placeholder="請輸入你的問題..." 
+                               class="w-full bg-white/5 border border-white/15 rounded-2xl px-4 py-3 text-sm focus:outline-none">
+                    </div>
+                    <button onclick="castTarot()" 
+                            class="w-full py-3 bg-white text-[#0a0a0f] rounded-2xl text-sm font-semibold hover:bg-white/90">
+                        開始占卜
+                    </button>
+                `;
+            } else if (type === 'daily') {
+                title.textContent = '每日運勢';
+                html = `
+                    <button onclick="castDaily()" 
+                            class="w-full py-3 bg-white text-[#0a0a0f] rounded-2xl text-sm font-semibold hover:bg-white/90">
+                        抽取今日運勢
+                    </button>
+                `;
+            }
+            
+            content.innerHTML = html;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function castIChing() {
+            const q = document.getElementById('div-q').value.trim() || '未指定問題';
+            const lines = [];
+            for (let i = 0; i < 6; i++) {
+                let sum = 0;
+                for (let j = 0; j < 3; j++) {
+                    sum += Math.random() < 0.5 ? 2 : 3;
+                }
+                lines.push(sum);
+            }
+            
+            const symbols = lines.map((sum, i) => {
+                const pos = i + 1;
+                let s = sum === 6 || sum === 8 ? '⚋' : '⚊';
+                let c = (sum === 6 || sum === 9) ? ' (變)' : '';
+                return `${pos}爻: ${s}${c}`;
+            });
+            
+            const result = `易經六爻\n問題：${q}\n\n${symbols.join('\n')}`;
+            
+            currentDivination.result = result;
+            currentDivination.prompt = `我進行了易經占卜。\n問題：${q}\n結果：\n${symbols.join('\n')}\n\n請為這個占卜結果給出詳細、正面且實用的解讀，包括整體卦象意義、當前情況分析、建議的行動方向，以及需要注意的事項。用繁體中文回答。`;
+            
+            showResult('易經六爻', result);
+        }
+
+        function castTarot() {
+            const q = document.getElementById('div-q').value.trim() || '未指定問題';
+            const cards = ['愚者', '魔術師', '女祭司', '皇后', '皇帝', '教皇', '戀人', '戰車', '力量', '隱士', '命運之輪', '正義'];
+            const shuffled = [...cards].sort(() => 0.5 - Math.random());
+            const cardsDrawn = shuffled.slice(0, 3);
+            
+            const result = `塔羅三牌\n問題：${q}\n\n過去/現況：${cardsDrawn[0]}\n行動/建議：${cardsDrawn[1]}\n未來/結果：${cardsDrawn[2]}`;
+            
+            currentDivination = { type: 'tarot', question: q, result, prompt: `我抽了塔羅三牌。\n問題：${q}\n結果：\n過去/現況：${cardsDrawn[0]}\n行動/建議：${cardsDrawn[1]}\n未來/結果：${cardsDrawn[2]}\n\n請為這個塔羅占卜結果給出詳細、正面且實用的解讀，包括每張牌的意義、整體連結，以及對提問者的建議。用繁體中文回答。` };
+            
+            showResult('塔羅三牌', result);
+        }
+
+        function castDaily() {
+            const fortunes = [
+                '今日適合靜心思考，貴人將出現。',
+                '事業有小突破，但需謹慎決策。',
+                '感情穩定，適合表達心意。',
+                '健康注意休息，避免過度勞累。',
+                '財運平穩，適合小額投資。'
+            ];
+            const result = `每日運勢\n\n${fortunes[Math.floor(Math.random() * fortunes.length)]}`;
+            
+            currentDivination = { type: 'daily', question: '每日運勢', result, prompt: `我的每日運勢抽籤結果是：${result}\n\n請給出正面建議。` };
+            
+            showResult('每日運勢', result);
+        }
+
+        function showResult(title, result) {
+            const modal = document.getElementById('div-modal');
+            const titleEl = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            titleEl.textContent = title;
+            content.innerHTML = `
+                <div class="divination-card p-4 rounded-2xl mb-4 whitespace-pre-line text-sm">
+                    ${result}
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function copyDivinationPrompt() {
+            if (!currentDivination || !currentDivination.prompt) return;
+            
+            navigator.clipboard.writeText(currentDivination.prompt).then(() => {
+                const modal = document.getElementById('div-modal');
+                const content = document.getElementById('modal-content');
+                content.innerHTML = `
+                    <div class="text-center py-4">
+                        <div class="text-emerald-400 mb-2">✓ 提示已複製</div>
+                        <div class="text-xs text-white/60">請在右側 Dify 聊天中貼上並發送</div>
+                    </div>
+                `;
+                
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 1500);
+            }).catch(() => {
+                alert('提示已複製：\n\n' + currentDivination.prompt);
+                document.getElementById('div-modal').classList.add('hidden');
+                document.getElementById('div-modal').classList.remove('flex');
+            });
+        }
+
+        function closeDivinationModal() {
+            const modal = document.getElementById('div-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function useExampleQuestion(el) {
+            const questionInput = document.getElementById('div-question');
+            questionInput.value = el.textContent.trim();
+            startDivination('iching');
+        }
+
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!menuBtn || !mobileMenu) return;
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
             });
         }
 
         window.onload = function() {
             initMobileMenu();
-            console.log('%c[Lumina Dify] Clean Dify embed page loaded.', 'color:#6366f1');
+            console.log('%c[占卜 AI] Clean Dify chatbot page loaded with 占卜 feature.', 'color:#6366f1');
         }
     </script>
 </body>
