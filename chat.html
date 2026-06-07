@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>占卜 AI</title>
+    <title>占卜AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -11,71 +11,73 @@
         
         body {
             font-family: 'Inter', system_ui, sans-serif;
+            background: #0a0a0f;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0a0f 0%, #120a1f 50%, #0a0a0f 100%);
+            background-attachment: fixed;
         }
-        
+
         .glass-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(24px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(139, 92, 246, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6),
+                        0 0 0 1px rgba(139, 92, 246, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
         }
 
         .divination-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .mystical-glow {
+            position: relative;
+        }
+
+        .mystical-glow::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #6366f1, #a855f7, #22d3ee, #6366f1);
+            background-size: 300% 300%;
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.2;
+            animation: mysticalShift 12s ease infinite;
+            filter: blur(6px);
+        }
+
+        @keyframes mysticalShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 300% 50%; }
         }
     </style>
 </head>
-<body class="bg-[#0a0a0f] text-white">
-    <!-- Top Navigation -->
-    <nav class="border-b border-white/10 bg-[#0a0a0f]/90 backdrop-blur-xl sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-14">
-                <!-- Logo -->
-                <div class="flex items-center gap-x-3">
+<body class="bg-[#0a0a0f] text-white min-h-screen">
+    <div class="flex h-screen">
+        
+        <!-- Sidebar: 占卜 tools -->
+        <div class="hidden lg:flex w-72 border-r border-white/10 flex-col bg-[#0a0a0f]/60 p-4 overflow-y-auto">
+            <div class="mb-6">
+                <div class="flex items-center gap-x-3 mb-4">
                     <div class="w-8 h-8 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
                         <span class="text-white font-semibold text-xl tracking-tighter">占</span>
                     </div>
-                    <span class="font-semibold text-xl tracking-tighter">占卜 AI</span>
+                    <span class="font-semibold text-xl tracking-tighter">占卜AI</span>
                 </div>
-
-                <div class="flex items-center gap-x-4">
-                    <a href="index.html" 
-                       class="px-5 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
-                        返回首頁
-                    </a>
-                    
-                    <button id="mobile-menu-btn"
-                            class="md:hidden w-10 h-10 flex items-center justify-center text-white/70 hover:text-white"
-                            aria-label="Toggle menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0a0a0f]">
-            <div class="px-6 py-4 flex flex-col gap-y-1 text-sm">
-                <a href="index.html" class="py-2.5 text-white/80 hover:text-white">返回首頁</a>
-                <div class="pt-2 mt-2 border-t border-white/10">
-                    <a href="https://udify.app/chatbot/zkfzl4Eahd09XtOO" target="_blank" 
-                       class="w-full py-3 rounded-2xl bg-white text-[#0a0a0f] font-semibold text-sm text-center block">
-                        開啟完整版
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="max-w-6xl mx-auto flex h-[calc(100vh-57px)]">
-        
-        <!-- Sidebar -->
-        <div class="hidden lg:flex w-72 border-r border-white/10 flex-col bg-[#0a0a0f]/60 p-4">
-            <div class="mb-6">
-                <h3 class="text-sm font-semibold text-white/90 mb-3 px-1">占卜工具</h3>
+                
+                <h3 class="text-sm font-semibold text-white/90 mb-3">占卜工具</h3>
                 
                 <div class="space-y-3">
                     <button onclick="startDivination('iching')" 
@@ -109,21 +111,10 @@
             </div>
         </div>
 
-        <!-- Main Chat Area -->
+        <!-- Main: Dify iframe -->
         <div class="flex-1 flex flex-col min-w-0">
-            <!-- Inner header -->
-            <div class="px-4 md:px-8 py-4 border-b border-white/10 bg-white/5 flex items-center justify-between">
-                <div>
-                    <div class="font-semibold">占卜 AI</div>
-                    <div class="text-xs text-emerald-400">Powered by Dify • Online</div>
-                </div>
-                <a href="https://udify.app/chatbot/zkfzl4Eahd09XtOO" target="_blank" 
-                   class="text-xs px-3 py-1 rounded-xl border border-white/15 hover:bg-white/5">開啟完整版</a>
-            </div>
-
-            <!-- Dify Embed -->
             <div class="flex-1 p-4 md:p-6 bg-[#0a0a0f]">
-                <div class="glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full">
+                <div class="glass-card mystical-glow rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full">
                     <iframe
                         src="https://udify.app/chatbot/zkfzl4Eahd09XtOO"
                         style="width: 100%; height: 100%; min-height: 700px"
@@ -159,20 +150,6 @@
     </div>
 
     <script>
-        function initMobileMenu() {
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (!menuBtn || !mobileMenu) return;
-
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-            });
-        }
-
         let currentDivination = null;
 
         function startDivination(type) {
@@ -345,7 +322,7 @@
 
         window.onload = function() {
             initMobileMenu();
-            console.log('%c[占卜 AI] Clean Dify chatbot page loaded with 占卜 feature.', 'color:#6366f1');
+            console.log('%c[占卜AI] Clean Dify chatbot page loaded with 占卜 feature.', 'color:#6366f1');
         }
     </script>
 </body>
