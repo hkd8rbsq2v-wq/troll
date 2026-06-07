@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina AI • Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-white">
+    <!-- Top Navigation -->
+    <nav class="border-b border-white/10 bg-[#0a0a0f]/90 backdrop-blur-xl sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-14">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <a href="index.html" class="flex items-center gap-x-3">
+                        <div class="w-8 h-8 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+                            <span class="text-white font-semibold text-xl tracking-tighter">L</span>
+                        </div>
+                        <div class="flex items-baseline gap-x-1.5">
+                            <span class="font-semibold text-xl tracking-tighter">Lumina</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm">
+                    <a href="index.html#features" class="text-white/70 hover:text-white transition-colors">Features</a>
+                    <a href="index.html#demo" class="text-white/70 hover:text-white transition-colors">Playground</a>
+                    <a href="index.html#testimonials" class="text-white/70 hover:text-white transition-colors">Stories</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <a href="index.html" 
+                       class="px-5 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
+                        Back to Lumina
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-white/70 hover:text-white"
+                            aria-label="Toggle menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0a0a0f]">
+            <div class="px-6 py-4 flex flex-col gap-y-1 text-sm">
+                <a href="index.html#features" class="py-2.5 text-white/80 hover:text-white">Features</a>
+                <a href="index.html#demo" class="py-2.5 text-white/80 hover:text-white">Playground</a>
+                <a href="index.html#testimonials" class="py-2.5 text-white/80 hover:text-white">Stories</a>
+                <div class="pt-2 mt-2 border-t border-white/10">
+                    <a href="index.html" 
+                       class="w-full py-3 rounded-2xl bg-white text-[#0a0a0f] font-semibold text-sm text-center block">
+                        Back to Lumina
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto flex h-[calc(100vh-57px)]">
+        
+        <!-- Sidebar (History) -->
+        <div class="hidden lg:flex w-72 border-r border-white/10 flex-col bg-[#0a0a0f]/60 p-4">
+            <button class="flex items-center justify-center gap-x-2 w-full py-3 rounded-2xl border border-white/15 hover:bg-white/5 text-sm font-medium mb-6 active:scale-[0.985]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                New chat
+            </button>
+
+            <div class="text-xs uppercase tracking-widest text-white/40 px-3 mb-2">Recent</div>
+            
+            <div class="space-y-1 text-sm">
+                <div class="px-3 py-2.5 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 flex items-center gap-x-3">
+                    <span class="flex-1 truncate">How to use glassmorphism?</span>
+                </div>
+                <div class="px-3 py-2.5 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 flex items-center gap-x-3">
+                    <span class="flex-1 truncate">Build a modern hero section</span>
+                </div>
+                <div class="px-3 py-2.5 rounded-2xl hover:bg-white/5 cursor-pointer text-white/70 flex items-center gap-x-3">
+                    <span class="flex-1 truncate">Best color palettes for dark UI</span>
+                </div>
+            </div>
+            
+            <div class="mt-auto pt-6 text-xs text-white/40 px-1">
+                Built with <span class="font-medium text-white/60">Grok Build</span><br>
+                All conversations are local
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="flex-1 flex flex-col min-w-0">
+            <!-- Inner header for the chat area -->
+            <div class="px-4 md:px-8 py-4 border-b border-white/10 bg-white/5 flex items-center justify-between">
+                <div>
+                    <div class="font-semibold">Lumina AI</div>
+                    <div class="text-xs text-emerald-400">Powered by Dify • Online</div>
+                </div>
+                <a href="https://udify.app/chatbot/zkfzl4Eahd09XtOO" target="_blank" 
+                   class="text-xs px-3 py-1 rounded-xl border border-white/15 hover:bg-white/5">Open in Dify</a>
+            </div>
+
+            <!-- Dify Chat Embed Container -->
+            <div class="flex-1 p-4 md:p-6 bg-[#0a0a0f]">
+                <div class="glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-full">
+                    <iframe
+                        src="https://udify.app/chatbot/zkfzl4Eahd09XtOO"
+                        style="width: 100%; height: 100%; min-height: 700px"
+                        frameborder="0"
+                        allow="microphone">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle (basic UI only, no chat logic)
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (!menuBtn || !mobileMenu) return;
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        window.onload = function() {
+            initMobileMenu();
+            console.log('%c[Lumina Dify] Clean Dify embed page loaded.', 'color:#6366f1');
+        }
+    </script>
+</body>
+</html>

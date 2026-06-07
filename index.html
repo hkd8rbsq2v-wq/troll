@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina • Beautiful interfaces, built simply</title>
+    <meta name="description" content="Lumina is a modern design system for crafting stunning, glassmorphic interfaces with ease. Simple. Beautiful. Powerful.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --accent: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-white antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+                        <span class="text-white font-semibold text-2xl tracking-tighter">L</span>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-2xl tracking-tighter">Lumina</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm">
+                    <a href="#features" class="text-white/70 hover:text-white transition-colors">Features</a>
+                    <a href="#demo" class="text-white/70 hover:text-white transition-colors">Playground</a>
+                    <a href="chat.html" class="text-white/70 hover:text-white transition-colors font-medium">AI Chat</a>
+                    <a href="#testimonials" class="text-white/70 hover:text-white transition-colors">Stories</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <button onclick="window.location.href='#demo'"
+                            class="hidden md:block px-5 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
+                        Try it free
+                    </button>
+                    <button onclick="getStarted()"
+                            class="px-5 py-2.5 rounded-2xl bg-white text-[#0a0a0f] text-sm font-semibold hover:bg-white/90 active:scale-[0.985] transition-all flex items-center gap-x-2">
+                        <span>Get started</span>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-white/70 hover:text-white"
+                            aria-label="Toggle menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0a0a0f]">
+            <div class="px-6 py-4 flex flex-col gap-y-1 text-sm">
+                <a href="#features" class="py-2.5 text-white/80 hover:text-white">Features</a>
+                <a href="#demo" class="py-2.5 text-white/80 hover:text-white">Playground</a>
+                <a href="chat.html" class="py-2.5 text-white/80 hover:text-white font-medium">AI Chat</a>
+                <a href="#testimonials" class="py-2.5 text-white/80 hover:text-white">Stories</a>
+                <div class="pt-2 mt-2 border-t border-white/10">
+                    <button onclick="getStarted()" 
+                            class="w-full py-3 rounded-2xl bg-white text-[#0a0a0f] font-semibold text-sm">
+                        Get started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-20 pb-16 md:pt-28 md:pb-20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm mb-8">
+                <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                <span class="text-white/80">Now in public beta</span>
+            </div>
+
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter leading-none mb-6">
+                Beautiful interfaces.<br>
+                <span class="bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Built simply.</span>
+            </h1>
+            
+            <p class="max-w-md mx-auto text-xl text-white/70 mb-10">
+                Lumina is the design system that makes glassmorphism, depth, and motion feel effortless.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="getStarted()"
+                        class="group w-full sm:w-auto px-8 py-4 rounded-3xl bg-white text-[#0a0a0f] font-semibold text-lg flex items-center justify-center gap-x-3 hover:bg-white/95 transition-all active:scale-[0.985]">
+                    <span>Start building for free</span>
+                    <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+                </button>
+                
+                <button onclick="document.getElementById('demo').scrollIntoView({ behavior: 'smooth' })"
+                        class="w-full sm:w-auto px-8 py-4 rounded-3xl border border-white/20 hover:bg-white/5 font-medium flex items-center justify-center gap-x-3 transition-colors text-lg">
+                    <span>Watch demo</span>
+                </button>
+                
+                <a href="chat.html"
+                   class="w-full sm:w-auto px-8 py-4 rounded-3xl bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold text-lg flex items-center justify-center gap-x-3 hover:brightness-110 transition-all active:scale-[0.985]">
+                    <span>Try Dify Chatbot</span>
+                </a>
+            </div>
+
+            <div class="mt-12 flex items-center justify-center gap-x-8 text-sm text-white/50">
+                <div class="flex items-center gap-x-2">
+                    <div class="flex -space-x-1">
+                        <div class="w-6 h-6 rounded-full bg-zinc-700 ring-1 ring-white/10"></div>
+                        <div class="w-6 h-6 rounded-full bg-zinc-600 ring-1 ring-white/10"></div>
+                        <div class="w-6 h-6 rounded-full bg-zinc-500 ring-1 ring-white/10"></div>
+                    </div>
+                    <span>12,481 designers</span>
+                </div>
+                <div class="hidden sm:block w-px h-3 bg-white/20"></div>
+                <span>Used by teams at Vercel, Linear, and Framer</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Logos -->
+    <section class="border-y border-white/10 py-6">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-60 text-sm tracking-widest">
+                <div>FRAMER</div>
+                <div>LINEAR</div>
+                <div>VERCEL</div>
+                <div>REPLIT</div>
+                <div>PERPLEXITY</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="max-w-7xl mx-auto px-6 pt-20 pb-16">
+        <div class="text-center mb-12">
+            <div class="inline text-xs font-medium tracking-[3px] text-indigo-400">POWERFUL YET SIMPLE</div>
+            <h2 class="mt-3 text-5xl font-semibold tracking-tighter">Everything you need.<br>Nothing you don't.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Feature 1 -->
+            <div class="glass-card group p-8 rounded-3xl">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-2">True glassmorphism</h3>
+                <p class="text-white/60 leading-relaxed">Real backdrop blur, layered translucency, and beautiful border highlights out of the box.</p>
+            </div>
+
+            <div class="glass-card group p-8 rounded-3xl">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M14 5l7 7-7 7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M5 12h14" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-2">Subtle motion</h3>
+                <p class="text-white/60 leading-relaxed">Thoughtful micro-interactions and scroll-linked animations that feel alive, never distracting.</p>
+            </div>
+
+            <div class="glass-card group p-8 rounded-3xl">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-2">Production ready</h3>
+                <p class="text-white/60 leading-relaxed">Fully accessible, responsive, and easy to customize. Copy, paste, ship.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo / Interactive Playground -->
+    <section id="demo" class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="flex flex-col lg:flex-row items-end justify-between mb-8 gap-y-4">
+            <div>
+                <div class="text-xs tracking-[3px] text-indigo-400 font-medium">INTERACTIVE</div>
+                <h2 class="text-5xl font-semibold tracking-tighter">Play with Lumina.</h2>
+                <p class="mt-2 text-lg text-white/70">Tweak the parameters live. Feel how beautiful it can be.</p>
+            </div>
+            <button onclick="resetDemo()" 
+                    class="text-sm px-5 py-2 rounded-2xl border border-white/15 hover:bg-white/5 transition-colors flex items-center gap-x-2">
+                <span>Reset</span>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            <!-- Live Preview -->
+            <div class="lg:col-span-3">
+                <div id="preview-card" 
+                     class="glass-card relative w-full rounded-3xl p-8 md:p-10 shadow-2xl overflow-hidden min-h-[380px] flex flex-col justify-between">
+                    
+                    <!-- Dynamic preview content -->
+                    <div>
+                        <div class="flex items-center gap-x-3 mb-6">
+                            <div id="preview-icon" 
+                                 class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex-shrink-0 flex items-center justify-center">
+                                <span class="text-white text-3xl font-light">✦</span>
+                            </div>
+                            <div>
+                                <div id="preview-title" class="font-semibold text-3xl tracking-tighter">Lumina Card</div>
+                                <div id="preview-subtitle" class="text-white/60">Modern. Minimal. Magical.</div>
+                            </div>
+                        </div>
+
+                        <div class="prose prose-invert text-white/80 max-w-none">
+                            <p id="preview-description">
+                                Experience depth and elegance with real-time glassmorphism controls.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-6">
+                        <button onclick="fakeAction(this)"
+                                class="flex-1 py-3.5 rounded-2xl bg-white/90 text-[#0a0a0f] font-semibold hover:bg-white transition-colors text-sm">
+                            Primary action
+                        </button>
+                        <button onclick="fakeAction(this)"
+                                class="flex-1 py-3.5 rounded-2xl border border-white/20 hover:bg-white/5 text-sm font-medium transition-colors">
+                            Secondary
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="lg:col-span-2 glass-card rounded-3xl p-7 space-y-6">
+                <div>
+                    <div class="flex justify-between text-sm mb-2.5">
+                        <span class="text-white/70">Border radius</span>
+                        <span id="radius-value" class="font-mono text-xs text-white/50">24px</span>
+                    </div>
+                    <input type="range" id="radius" min="8" max="48" step="1" value="24" 
+                           class="w-full accent-indigo-400" oninput="updatePreview()">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm mb-2.5">
+                        <span class="text-white/70">Glass blur</span>
+                        <span id="blur-value" class="font-mono text-xs text-white/50">20px</span>
+                    </div>
+                    <input type="range" id="blur" min="0" max="40" step="1" value="20" 
+                           class="w-full accent-indigo-400" oninput="updatePreview()">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm mb-2.5">
+                        <span class="text-white/70">Background opacity</span>
+                        <span id="opacity-value" class="font-mono text-xs text-white/50">12%</span>
+                    </div>
+                    <input type="range" id="opacity" min="5" max="35" step="1" value="12" 
+                           class="w-full accent-indigo-400" oninput="updatePreview()">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm mb-3">
+                        <span class="text-white/70">Accent color</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="setAccent('#6366f1')" class="w-8 h-8 rounded-2xl bg-[#6366f1] ring-1 ring-offset-2 ring-offset-[#0a0a0f] ring-white/20"></button>
+                        <button onclick="setAccent('#a855f7')" class="w-8 h-8 rounded-2xl bg-[#a855f7] ring-1 ring-offset-2 ring-offset-[#0a0a0f] ring-white/20"></button>
+                        <button onclick="setAccent('#22d3ee')" class="w-8 h-8 rounded-2xl bg-[#22d3ee] ring-1 ring-offset-2 ring-offset-[#0a0a0f] ring-white/20"></button>
+                        <button onclick="setAccent('#f43f5e')" class="w-8 h-8 rounded-2xl bg-[#f43f5e] ring-1 ring-offset-2 ring-offset-[#0a0a0f] ring-white/20"></button>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-white/10">
+                    <button onclick="copyComponentCode()" 
+                            class="w-full flex items-center justify-center gap-x-2 py-3 rounded-2xl border border-white/15 hover:bg-white/5 text-sm font-medium transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16v-4m4 4v4m4-8v8m4-4v-4m-16 8h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2" />
+                        </svg>
+                        <span>Copy component code</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="border-t border-white/10 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-semibold tracking-tighter">Loved by creators.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass-card p-7 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://i.pravatar.cc/40?img=32" class="w-10 h-10 rounded-full" alt="">
+                        <div>
+                            <div class="font-medium">Mia Chen</div>
+                            <div class="text-xs text-white/50">Design Director @ Linear</div>
+                        </div>
+                    </div>
+                    <p class="text-white/80 leading-relaxed">"Lumina made our entire marketing site feel premium in a single afternoon. The glass components are stupidly good."</p>
+                </div>
+
+                <div class="glass-card p-7 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://i.pravatar.cc/40?img=47" class="w-10 h-10 rounded-full" alt="">
+                        <div>
+                            <div class="font-medium">Alex Rivera</div>
+                            <div class="text-xs text-white/50">Founder @ Framer</div>
+                        </div>
+                    </div>
+                    <p class="text-white/80 leading-relaxed">"The live playground is genuinely addictive. I use it to prototype almost every new interface now."</p>
+                </div>
+
+                <div class="glass-card p-7 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-5">
+                        <img src="https://i.pravatar.cc/40?img=28" class="w-10 h-10 rounded-full" alt="">
+                        <div>
+                            <div class="font-medium">Sofia Patel</div>
+                            <div class="text-xs text-white/50">Principal Designer @ Vercel</div>
+                        </div>
+                    </div>
+                    <p class="text-white/80 leading-relaxed">"Finally, motion and glass that doesn’t feel like a gimmick. Every detail is considered."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="glass-card rounded-3xl p-12 md:p-16 text-center">
+            <h2 class="text-5xl tracking-tighter font-semibold">Ready to build something beautiful?</h2>
+            <p class="mt-4 text-xl text-white/70 max-w-sm mx-auto">Join thousands of designers and developers shipping faster with Lumina.</p>
+            
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="getStarted()" 
+                        class="px-9 py-4 bg-white text-[#0a0a0f] rounded-3xl font-semibold text-lg hover:bg-white/95 transition-all active:scale-[0.985]">
+                    Start for free — no credit card required
+                </button>
+            </div>
+            <p class="text-xs text-white/50 mt-5">Free for individuals. Teams start at $12/month.</p>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-9 text-xs text-white/50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-2">
+            <div>© 2026 Lumina. Crafted with care using Grok Build.</div>
+            <div class="flex gap-x-6">
+                <a href="#" class="hover:text-white">Twitter</a>
+                <a href="#" class="hover:text-white">GitHub</a>
+                <a href="#" class="hover:text-white">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
